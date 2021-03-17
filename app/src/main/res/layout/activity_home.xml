@@ -37,7 +37,7 @@
                 android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="40dp"
-                android:text="Zone 1"
+                android:text="QrCode Scanner"
                 android:textColor="@color/btn_color"
                 style="?attr/materialButtonOutlinedStyle"/>
         </LinearLayout>
