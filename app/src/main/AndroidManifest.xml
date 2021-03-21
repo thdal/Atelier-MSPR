@@ -12,10 +12,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AtelierMSPR">
-        <activity android:name=".HomeActivity"/>
-        <activity android:name=".ScannerActivity"/>
-        <activity android:name=".AtelierMsprActivity"/>
+        android:theme="@style/Theme.AtelierMSPR"
+        android:networkSecurityConfig="@xml/config_secu">
+        <activity android:name=".ProductListActivity"></activity>
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".ScannerActivity" />
+        <activity android:name=".AtelierMsprActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

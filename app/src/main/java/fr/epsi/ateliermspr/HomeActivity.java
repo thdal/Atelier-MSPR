@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class HomeActivity extends AtelierMsprActivity {
+public class HomeActivity extends AtelierMsprActivity implements View.OnClickListener{
     static public void displayActivity(AtelierMsprActivity activity){
         Intent intent = new Intent(activity,HomeActivity.class);
         activity.startActivity(intent);
@@ -15,13 +15,20 @@ public class HomeActivity extends AtelierMsprActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        Button btnZone1 = findViewById(R.id.buttonZone1);
-        btnZone1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this,ScannerActivity.class);
-                startActivity(intent);
-            }
-        });
+        findViewById(R.id.buttonScan).setOnClickListener(this);
+        findViewById(R.id.buttonPromo).setOnClickListener(this);
+        //title
+        this.setTitle("GoStyle");
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.buttonScan:
+                ScannerActivity.displayActivity(this);
+                break;
+            case R.id.buttonPromo:
+                ProductListActivity.displayActivity(this);
+        }
     }
 }

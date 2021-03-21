@@ -1,46 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     tools:context=".HomeActivity">
-
-    <RelativeLayout
+    <include
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/top_bar">
-
-        <TextView
-            android:id="@+id/textViewTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="30dp"
-            android:text="@string/txt_epsi"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:layout_centerInParent="true"/>
-
-    </RelativeLayout>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/buttonZone1"
-                android:layout_width="300dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:layout_marginBottom="40dp"
-                android:text="QrCode Scanner"
-                android:textColor="@color/btn_color"
-                style="?attr/materialButtonOutlinedStyle"/>
-        </LinearLayout>
-    </ScrollView>
-
+        android:layout_height="wrap_content"
+        layout="@layout/layout_header"/>
+    <Button
+        android:id="@+id/buttonScan"
+        android:textSize="20dp"
+        android:background="@android:color/holo_blue_bright"
+        android:layout_marginTop="200dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Scanner Qrcode"/>
+    <Button
+        android:id="@+id/buttonPromo"
+        android:textSize="20dp"
+        android:background="@android:color/holo_green_light"
+        android:layout_marginTop="40dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Voir les produits en promo"/>
 </LinearLayout>

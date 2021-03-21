@@ -22,6 +22,7 @@ public class ScannerActivity extends AtelierMsprActivity {
         Intent intent = new Intent(activity,ScannerActivity.class);
         activity.startActivity(intent);
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
