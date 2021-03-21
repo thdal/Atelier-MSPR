@@ -44,7 +44,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.getLayoutCell().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //ProductDetailsActivity.displayActivity(activity, product);
+                ProductDetailsActivity.displayActivity(activity, product);
             }
         });
     }

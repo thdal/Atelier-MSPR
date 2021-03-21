@@ -13,9 +13,9 @@ public class Product {
     public Product(JSONObject o){
         this.setId(o.optString("id", ""));
         this.setCategory(o.optString("category", ""));
-        this.setName(o.optString("title", ""));
+        this.setName(o.optString("name", ""));
         this.setDescription(o.optString("description", ""));
-        this.setPictureUrl(o.optString("products_url", ""));
+        this.setPictureUrl(o.optString("picture_url", ""));
     }
 
 
