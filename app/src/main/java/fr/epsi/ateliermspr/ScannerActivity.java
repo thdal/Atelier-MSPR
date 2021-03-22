@@ -27,6 +27,7 @@ public class ScannerActivity extends AtelierMsprActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scanner);
+        showBack();
 
         textView = findViewById(R.id.textView);
 
@@ -60,8 +61,4 @@ public class ScannerActivity extends AtelierMsprActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
 }
