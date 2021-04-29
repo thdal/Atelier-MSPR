@@ -3,7 +3,6 @@ package fr.epsi.ateliermspr;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 public class HomeActivity extends AtelierMsprActivity implements View.OnClickListener{
     static public void displayActivity(AtelierMsprActivity activity){
@@ -25,7 +24,7 @@ public class HomeActivity extends AtelierMsprActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.buttonScan:
-                ScannerActivity.displayActivity(this);
+                SplashActivity.ScannerActivity.displayActivity(this);
                 break;
             case R.id.buttonPromo:
                 ProductListActivity.displayActivity(this);

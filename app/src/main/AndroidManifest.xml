@@ -16,7 +16,7 @@
         <activity android:name=".ProductDetailsActivity"></activity>
         <activity android:name=".ProductListActivity" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".ScannerActivity" />
+        <activity android:name=".SplashActivity$ScannerActivity" />
         <activity android:name=".AtelierMsprActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
