@@ -28,6 +28,7 @@ public class HomeActivity extends AtelierMsprActivity implements View.OnClickLis
                 break;
             case R.id.buttonPromo:
                 ProductListActivity.displayActivity(this);
+                break;
         }
     }
 }

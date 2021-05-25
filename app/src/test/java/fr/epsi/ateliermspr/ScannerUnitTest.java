@@ -13,10 +13,6 @@ public class ScannerUnitTest {
 
     @Test
     public void QrCode_isCorrect() {
-
-
-        assertEquals(4, 2 + 2)
-
-        ;
+        assertEquals(4, 2 + 2);
     }
 }
