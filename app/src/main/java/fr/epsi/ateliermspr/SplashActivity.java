@@ -44,6 +44,7 @@ public class SplashActivity extends AtelierMsprActivity {
         private String wsUrl = "https://www.ectatest.fr/api/gostyle/v_0/singleProduct/";
 
         private TextView textView;
+        private ImageView imageView;
 
         static public void displayActivity(AtelierMsprActivity activity){
             Intent intent = new Intent(activity, ScannerActivity.class);
@@ -59,6 +60,7 @@ public class SplashActivity extends AtelierMsprActivity {
             showBack();
 
             textView = findViewById(R.id.textViewSinglePDescription);
+            imageView = findViewById(R.id.imageViewSingleProduct);
 
            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, PackageManager.PERMISSION_GRANTED);
 
@@ -82,12 +84,19 @@ public class SplashActivity extends AtelierMsprActivity {
             IntentResult intentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
             if(intentResult != null){
                 if(intentResult.getContents() == null){
-                    TextView descriptionV = findViewById(R.id.textViewSinglePDescription);
-                    descriptionV.setText("Une erreur s'est produite");
+                    setTitle("Scanner de QRCode");
+                    imageView.setImageResource(0);
+                    textView.setText("Une erreur s'est produite");
                 }else{
                     // on affiche le résultat en cas de succès
-                    int idProduct = Integer.valueOf(intentResult.getContents(), 10); // on récupère la réponse du qrcode (valeur réelle)
-                    this.getProduct(idProduct);
+                    if (CheckingStringNumeric.isNumenic(intentResult.getContents())){
+                        int idProduct = Integer.valueOf(intentResult.getContents(), 10); // on récupère la réponse du qrcode (valeur réelle)
+                        this.getProduct(idProduct);
+                    }else{
+                        setTitle("Scanner de QRCode");
+                        imageView.setImageResource(0);
+                        textView.setText("QRCode introuvable !");
+                    }
                 }
             }
             super.onActivityResult(requestCode, resultCode, data);
@@ -99,19 +108,20 @@ public class SplashActivity extends AtelierMsprActivity {
                 @Override
                 public void onComplete(String result) {
                     try {
+                        Product product = null;
                         JSONObject jsonObject = new JSONObject(result);
                         JSONArray jsonItems = jsonObject.getJSONArray("items");
-                        Product product = new Product(jsonItems.getJSONObject(0));
 
-                        if ( product != null){
+                        if (!jsonItems.get(0).equals(null)){
+                            product = new Product(jsonItems.getJSONObject(0));
                             // affichage du résultat
                             setTitle(product.getName());
-
-                            ImageView imageView = findViewById(R.id.imageViewSingleProduct);
                             Picasso.get().load(product.getPictureUrl()).into(imageView);
-
-                            TextView descriptionV = findViewById(R.id.textViewSinglePDescription);
-                            descriptionV.setText(product.getDescription());
+                            textView.setText(product.getDescription());
+                        }else {
+                            setTitle("Scanner de QRCode");
+                            imageView.setImageResource(0);
+                            textView.setText("QRCode introuvable !");
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
