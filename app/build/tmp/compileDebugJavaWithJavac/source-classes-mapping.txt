@@ -1,0 +1,33 @@
+fr/epsi/ateliermspr/ProductDetailsActivity.java
+ fr.epsi.ateliermspr.ProductDetailsActivity
+fr/epsi/ateliermspr/WSCall.java
+ fr.epsi.ateliermspr.WSCall
+ fr.epsi.ateliermspr.WSCall$1
+ fr.epsi.ateliermspr.WSCall$2
+ fr.epsi.ateliermspr.WSCall$Callback
+fr/epsi/ateliermspr/AtelierMsprApplication.java
+ fr.epsi.ateliermspr.AtelierMsprApplication
+fr/epsi/ateliermspr/ScannerActivity.java
+ fr.epsi.ateliermspr.ScannerActivity
+ fr.epsi.ateliermspr.ScannerActivity$1
+fr/epsi/ateliermspr/ProductAdapter.java
+ fr.epsi.ateliermspr.ProductAdapter
+ fr.epsi.ateliermspr.ProductAdapter$1
+ fr.epsi.ateliermspr.ProductAdapter$ViewHolder
+fr/epsi/ateliermspr/HomeActivity.java
+ fr.epsi.ateliermspr.HomeActivity
+fr/epsi/ateliermspr/Product.java
+ fr.epsi.ateliermspr.Product
+fr/epsi/ateliermspr/AtelierMsprActivity.java
+ fr.epsi.ateliermspr.AtelierMsprActivity
+ fr.epsi.ateliermspr.AtelierMsprActivity$1
+fr/epsi/ateliermspr/BuildConfig.java
+ fr.epsi.ateliermspr.BuildConfig
+fr/epsi/ateliermspr/ProductListActivity.java
+ fr.epsi.ateliermspr.ProductListActivity
+ fr.epsi.ateliermspr.ProductListActivity$1
+fr/epsi/ateliermspr/SplashActivity.java
+ fr.epsi.ateliermspr.SplashActivity
+ fr.epsi.ateliermspr.SplashActivity$1
+ fr.epsi.ateliermspr.SplashActivity$ScannerActivity
+ fr.epsi.ateliermspr.SplashActivity$ScannerActivity$1
