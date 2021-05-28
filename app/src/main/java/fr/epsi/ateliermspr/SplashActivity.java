@@ -41,7 +41,7 @@ public class SplashActivity extends AtelierMsprActivity {
     }
     /// scanner code
     public static class ScannerActivity extends AtelierMsprActivity {
-        private String wsUrl = "https://gostyleapi.meteorapp.com/api/gostyle/v_0/singleProduct/";
+        private String wsUrl = "https://www.ectatest.fr/api/gostyle/v_0/singleProduct/";
 
         private TextView textView;
 
@@ -82,41 +82,18 @@ public class SplashActivity extends AtelierMsprActivity {
             IntentResult intentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
             if(intentResult != null){
                 if(intentResult.getContents() == null){
-                    //textView.setText("Cancelled");
-                    int idProduct = 1; // ici normalement on doit pourvoir recupérer le code envoyé par QRCode (valeur de test)
-                    Product product = this.getProduct(idProduct); // l'appel à l'API pour la récupération du produit
-                    if ( product != null){
-                        // affichage du résultat
-                        setTitle(product.getName());
-
-                        ImageView imageView = findViewById(R.id.imageViewSingleProduct);
-                        Picasso.get().load(product.getPictureUrl()).into(imageView);
-
-                        TextView descriptionV = findViewById(R.id.textViewSinglePDescription);
-                        descriptionV.setText(product.getDescription());
-                    }
+                    TextView descriptionV = findViewById(R.id.textViewSinglePDescription);
+                    descriptionV.setText("Une erreur s'est produite");
                 }else{
-                    textView.setText(intentResult.getContents());
                     // on affiche le résultat en cas de succès
                     int idProduct = Integer.valueOf(intentResult.getContents(), 10); // on récupère la réponse du qrcode (valeur réelle)
-                    Product product = this.getProduct(idProduct); // l'appel à l'API pour la récupération du produit
-                    if ( product != null){
-                        // affichage du résultat
-                        setTitle(product.getName());
-
-                        ImageView imageView = findViewById(R.id.imageViewSingleProduct);
-                        Picasso.get().load(product.getPictureUrl()).into(imageView);
-
-                        TextView descriptionV = findViewById(R.id.textViewSinglePDescription);
-                        descriptionV.setText(product.getDescription());
-                    }
+                    this.getProduct(idProduct);
                 }
             }
             super.onActivityResult(requestCode, resultCode, data);
         }
 
-        public Product getProduct(int idProduct){
-            ArrayList<Product> products = new ArrayList<Product>();
+        public void getProduct(int idProduct){
 
             WSCall wsCall = new WSCall(this.wsUrl+idProduct, new WSCall.Callback() {
                 @Override
@@ -124,8 +101,18 @@ public class SplashActivity extends AtelierMsprActivity {
                     try {
                         JSONObject jsonObject = new JSONObject(result);
                         JSONArray jsonItems = jsonObject.getJSONArray("items");
-                        Product p = new Product(jsonItems.getJSONObject(0));
-                        products.add(p);
+                        Product product = new Product(jsonItems.getJSONObject(0));
+
+                        if ( product != null){
+                            // affichage du résultat
+                            setTitle(product.getName());
+
+                            ImageView imageView = findViewById(R.id.imageViewSingleProduct);
+                            Picasso.get().load(product.getPictureUrl()).into(imageView);
+
+                            TextView descriptionV = findViewById(R.id.textViewSinglePDescription);
+                            descriptionV.setText(product.getDescription());
+                        }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -137,8 +124,6 @@ public class SplashActivity extends AtelierMsprActivity {
                 }
             });
             wsCall.run();
-
-            return products.get(0);
         }
     }
 }

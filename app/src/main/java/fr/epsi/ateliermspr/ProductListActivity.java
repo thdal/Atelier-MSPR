@@ -15,7 +15,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class ProductListActivity extends AtelierMsprActivity {
-    private String wsUrl = "https://gostyleapi.meteorapp.com/api/gostyle/v_0/products";
+    private String wsUrl = "https://www.ectatest.fr/api/gostyle/v_0/products";
     ArrayList<Product> products;
     ProductAdapter productAdapter;
     RecyclerView recyclerView;
